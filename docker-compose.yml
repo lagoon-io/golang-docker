@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  golang:
+    build: ./golang
+    container_name: "golang-app"
+    volumes:
+      - ./src:/src
+    ports:
+      - "8080:8080"
+
+  mysql:
+    image: mysql
+    container_name: "golang-mysql"
+    restart: always
+    environment:
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: root
+    ports: 
+      - 13306:3306
+    volumes:
+      - ./mysql:/etc/mysql/conf.d
+
+  postgres:
+    restart: always
+    image: postgres:alpine
+    container_name: "golang-postgres"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - 15432:5432
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data

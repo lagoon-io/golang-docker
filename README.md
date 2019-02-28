@@ -1,2 +1,2 @@
 # golang-docker
-Golang、Nginx、PostgreSQL構成のDocker
+Golang、MySQL、PostgreSQL構成のDocker
