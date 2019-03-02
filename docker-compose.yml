@@ -5,7 +5,7 @@ services:
     build: ./golang
     container_name: "golang-app"
     volumes:
-      - ./src:/src
+      - ./src:/go
     ports:
       - "8080:8080"
 
